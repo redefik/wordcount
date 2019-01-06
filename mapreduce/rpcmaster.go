@@ -35,8 +35,6 @@ func createTempFiles(num int) ([]string, error) {
 func removeTempFiles(files [][]string) error {
 	for h := 0; h < len(files); h++ {
 		for k := 0; k < len(files[0]); k++ {
-			toRemove := files[h][k]
-			fmt.Println(toRemove)
 			err := os.Remove(files[h][k])
 			if err != nil {
 				return err
