@@ -1,0 +1,12 @@
+{
+  "master": [
+    "localhost:1234"
+  ],
+  "mapper":[
+    "localhost:1235", "localhost:1236", "localhost:1237"
+  ],
+  "reducer":[
+    "localhost:1238", "localhost:1239"
+  ],
+  "outdir": "test"
+}
