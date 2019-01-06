@@ -41,10 +41,27 @@ go get -u github.com/redefik/wordcount/...
   ```
   ./client -config=~/conf.json file1.txt file2.txt file3.txt file4.txt
   ```
-* At completion, the program shows you created files:
+* At completion, the program shows created files:
   ```
   Work done!
   You can find results in:
   out/out0.txt
   out/out1.txt
   ```
+## Implementation Overview
+
+* The client passes N input files to the master node using a synchronous RPC invocation.
+* The master distribute the N files among M mappers.
+  Each mapper is assigned R temporary files. The i-th file will be then processed by the i-th reducer.
+* Each mapper counts the occurrences for the given files and stores the results into the R temporary files.
+  The distribution among the temporary files is made by hashing.
+* When all the mappers have completed, the master activates the R reducers and creates R output files.
+  Each reducer receives M temporary files from the master and merges the intermediate results previously computed by the mappers.
+  Final results are stored in the output file passed by the master.
+* When all the reducers have completed, the master removes the temporary files and returns to the client the output files.
+* Mapper and reducer are invoked asynchronously using Go method ```Go```.
+
+The following assumptions have been made:
+- The set of workers is known and does not change during computation;
+- No worker fails;
+- The master does not fail.
