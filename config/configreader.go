@@ -29,5 +29,14 @@ func GetConfiguration(configFile string) (Config, error) {
 	if err != nil {
 		return config, err
 	}
+	if len(config.Master) == 0 {
+		return config, errors.New("no master found")
+	}
+	if len(config.Reducer) == 0 {
+		return config, errors.New("no reducer found")
+	}
+	if len(config.Mapper) == 0 {
+		return config, errors.New("no mapper found")
+	}
 	return config, nil
 }
