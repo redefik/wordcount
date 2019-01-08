@@ -6,7 +6,7 @@ Install using the "go get" command:
 go get -u github.com/redefik/wordcount/...
 ```
 ## Example Usage
-* Move to the ```bin``` subdirectory of your go workspace.
+* Move to the ```bin``` subdirectory of your Go workspace.
 * Launch the master node specifying its address:
   ```
   ./master localhost:1234 &
