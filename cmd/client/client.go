@@ -23,7 +23,7 @@ func main() {
 	}
 
 	// Get system configuration
-	config, err := config.GetConfiguration(*configurationFile)
+	configuration, err := config.GetConfiguration(*configurationFile)
 	if err != nil {
 		log.Fatal("Couldn't retrieve system configuration:", err)
 	}
@@ -31,7 +31,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Couldn't get master node address:", err)
 	}
-	masterAddress := config.Master[0]
+	masterAddress := configuration.Master[0]
 	client, err := rpc.Dial("tcp", masterAddress)
 	if err != nil {
 		log.Fatal("Couldn't connect to master:", err)
@@ -39,7 +39,7 @@ func main() {
 	defer client.Close()
 
 	// Invoke the master RPC method to get the word count for the files given.
-	input := mapreduce.WordCountInput{Files:args[1:], Config:config}
+	input := mapreduce.WordCountInput{Files:args, Config:configuration}
 	var outputFiles []string
 	err = client.Call("Master.WordCount", &input, &outputFiles)
 	if err != nil {
