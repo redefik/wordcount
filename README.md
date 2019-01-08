@@ -31,7 +31,7 @@ go get -u github.com/redefik/wordcount/...
   "reducer":[
     "localhost:1238", "localhost:1239"
   ],
-  "outdir": "~/out"
+  "outdir": "path/to/outdir"
   }
   ```
   In the example above, the first three workers act as mapper and the last two act as reducer.
@@ -39,7 +39,7 @@ go get -u github.com/redefik/wordcount/...
   
 * Launch the client specifying configuration and data files location:
   ```
-  ./client -config=~/conf.json file1.txt file2.txt file3.txt file4.txt
+  ./client -config=path/to/conf.json file1.txt file2.txt file3.txt file4.txt
   ```
 * At completion, the program shows created files:
   ```
