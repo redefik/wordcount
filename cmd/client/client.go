@@ -25,7 +25,7 @@ func main() {
 	// Get system configuration
 	configuration, err := config.GetConfiguration(*configurationFile)
 	if err != nil {
-		log.Fatal("Couldn't retrieve system configuration:", err)
+		log.Fatal("Error in retrieving system configuration:", err)
 	}
 	// Connect to the master node.
 	if err != nil {
