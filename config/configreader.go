@@ -1,3 +1,4 @@
+// Author: Federico Viglietta
 package config
 
 import (
