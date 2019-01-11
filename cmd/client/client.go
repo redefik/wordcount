@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 	// Parse input filename.
 	args := flag.Args()
-	if len(args) < 2 {
+	if len(args) < 1 {
 		fmt.Fprintf(os.Stderr, "Usage: ./client [configuration_file] <filename> <filename> ...<filename>\n")
 		os.Exit(1)
 	}
