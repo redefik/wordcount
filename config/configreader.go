@@ -15,6 +15,7 @@ type Config struct {
 	OutDir string
 }
 
+// Returns the struct encapsulating configuration information reading it from the file given.
 func GetConfiguration(configFile string) (Config, error) {
 	var config Config
 	jsonFile, err := os.Open(configFile)
