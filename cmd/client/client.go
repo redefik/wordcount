@@ -18,7 +18,7 @@ func main() {
 	// Parse input filename.
 	args := flag.Args()
 	if len(args) < 2 {
-		fmt.Fprintf(os.Stderr, "Usage: ./wordcount <filename> <filename> ...<filename>\n")
+		fmt.Fprintf(os.Stderr, "Usage: ./client <filename> <filename> ...<filename>\n")
 		os.Exit(1)
 	}
 
