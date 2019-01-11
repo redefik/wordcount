@@ -5,7 +5,7 @@ Install using the "go get" command:
 ```
 go get -u github.com/redefik/wordcount/...
 ```
-The command adds three files in the bin directory of Go workspace: ```master```,```worker```and ```client```.
+The command adds three files in the ```bin``` directory of Go workspace: ```master```,```worker```and ```client```.
 ## Example Usage
 * Move to the ```bin``` subdirectory of your Go workspace.
 * Launch the master node specifying its address:
